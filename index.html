@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Zombie Tsunami</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HUD -->
+    <header id="hud">
+        <div class="badge">🧟 Zombie: <span id="zombieCount">1</span></div>
+        <div class="badge">🪙 Skor: <span id="score">0</span></div>
+        <div class="badge">🏆 Rekor: <span id="best">0</span></div>
+        <div class="badge" id="powerText">⚡ Power: -</div>
+
+        <button id="changeBackground" type="button">
+            Ganti Background
+        </button>
+    </header>
+
+    <!-- Area permainan -->
+    <main id="gameContainer">
+        <canvas id="game"></canvas>
+    </main>
+
+    <!-- Menu awal dan game over -->
+    <section id="overlay">
+        <div class="panel">
+            <h1 id="title">ZOMBIE TSUNAMI</h1>
+
+            <p id="description">
+                Kumpulkan manusia untuk menambah zombie!<br>
+                Ambil koin dan peti harta karun.<br>
+                Hindari mobil, bom, dan jurang!
+            </p>
+
+            <button id="startButton" type="button">
+                MULAI BERMAIN
+            </button>
+        </div>
+    </section>
+
+    <!-- Petunjuk kontrol -->
+    <div id="help">
+        SPACE / W / ↑ / Klik = Lompat
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>

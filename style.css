@@ -1,0 +1,277 @@
+
+/* =================================
+   RESET DASAR
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #111923;
+    color: white;
+}
+
+/* =================================
+   AREA GAME
+================================= */
+
+#gameContainer {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #18263e;
+}
+
+#game {
+    display: block;
+    width: 100%;
+    height: 100%;
+    touch-action: manipulation;
+}
+
+/* =================================
+   HUD / INFORMASI GAME
+================================= */
+
+#hud {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    z-index: 10;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+
+    pointer-events: none;
+}
+
+.badge {
+    padding: 11px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+
+    background: rgba(12, 19, 28, 0.82);
+    color: #f4f6f8;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+}
+
+/* =================================
+   TOMBOL GANTI BACKGROUND
+================================= */
+
+#changeBackground {
+    pointer-events: auto;
+
+    padding: 11px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
+
+    background: #344e41;
+    color: white;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+#changeBackground:hover {
+    background: #4c7455;
+    transform: translateY(-2px);
+}
+
+#changeBackground:active {
+    transform: scale(0.96);
+}
+
+/* =================================
+   MENU AWAL DAN GAME OVER
+================================= */
+
+#overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background: rgba(5, 10, 16, 0.48);
+    backdrop-filter: blur(3px);
+}
+
+#overlay.hidden {
+    display: none;
+}
+
+.panel {
+    width: min(460px, 100%);
+    padding: 35px 28px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 22px;
+
+    background: rgba(15, 24, 32, 0.94);
+
+    text-align: center;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+
+    animation: panelAppear 0.45s ease;
+}
+
+.panel h1 {
+    margin-bottom: 18px;
+
+    color: #9be36b;
+    font-size: clamp(26px, 5vw, 38px);
+    font-weight: 900;
+    letter-spacing: 1px;
+
+    text-shadow: 0 3px 15px rgba(100, 255, 100, 0.15);
+}
+
+.panel p {
+    margin-bottom: 25px;
+
+    color: #d5dde4;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* =================================
+   TOMBOL MULAI
+================================= */
+
+#startButton {
+    width: 100%;
+    padding: 15px 20px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: linear-gradient(135deg, #80d957, #4eaa47);
+    color: #122414;
+
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    box-shadow: 0 6px 20px rgba(93, 213, 79, 0.2);
+
+    transition: transform 0.2s, filter 0.2s;
+}
+
+#startButton:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+#startButton:active {
+    transform: scale(0.97);
+}
+
+/* =================================
+   PETUNJUK KONTROL
+================================= */
+
+#help {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    z-index: 5;
+
+    transform: translateX(-50%);
+
+    width: max-content;
+    max-width: calc(100% - 30px);
+
+    padding: 10px 16px;
+    border-radius: 10px;
+
+    background: rgba(10, 16, 22, 0.72);
+    color: #e0e6eb;
+
+    font-size: 12px;
+    text-align: center;
+
+    pointer-events: none;
+}
+
+/* =================================
+   ANIMASI
+================================= */
+
+@keyframes panelAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* =================================
+   RESPONSIVE UNTUK HP
+================================= */
+
+@media (max-width: 600px) {
+    #hud {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        gap: 6px;
+    }
+
+    .badge {
+        padding: 9px 10px;
+        font-size: 11px;
+        border-radius: 9px;
+    }
+
+    #changeBackground {
+        padding: 9px 11px;
+        font-size: 11px;
+        border-radius: 9px;
+    }
+
+    .panel {
+        padding: 28px 20px;
+    }
+
+    .panel p {
+        font-size: 13px;
+    }
+
+    #help {
+        bottom: 10px;
+        font-size: 11px;
+    }
+}
